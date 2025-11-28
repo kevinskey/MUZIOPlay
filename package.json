@@ -6,14 +6,13 @@
     "style": "dist/APlayer.min.css",
     "scripts": {
         "start": "npm run dev",
-        "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --colors",
-        "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/dev.config.js --watch --colors",
+        "postinstall": "node patch-postcss.js",
+  "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --colors",
+  "test": "echo \"Error: no test specified\" && exit 1",
         "test": "eslint src webpack",
         "format": "eslint \"**/*.js\" --fix && prettier \"**/*.{js,json,md}\" --write",
         "format:staged": "eslint \"**/*.js\" --fix && pretty-quick --staged --verbose --pattern \"**/*.{js,json,md}\"",
         "format:check": "eslint \"**/*.js\" && prettier-check \"**/*.{js,json,md}\""
-        "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --colors",
-        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "files": [
         "dist"
